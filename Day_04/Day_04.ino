@@ -2,12 +2,12 @@
 #include <Servo.h>
 
 Servo motor;
-int servoPin = 7;
-int irSensor = 8;
-int motor1 = 10;
-int motor2 = 11;
-int motor3 = 12;
-int motor4 = 13;
+int servoPin = 6;
+int irSensor = 9;
+int motor1 = 1;
+int motor2 = 2;
+int motor3 = 3;
+int motor4 = 4;
 
 void setup()
 {
@@ -32,7 +32,7 @@ void loop()
     digitalWrite(motor2, LOW);
     digitalWrite(motor3, HIGH);
     digitalWrite(motor4, LOW);
-    delay(200);
+    delay(500);
   }
   else
   { // obstacle detected
@@ -42,21 +42,28 @@ void loop()
     digitalWrite(motor2, LOW);
     digitalWrite(motor3, LOW);
     digitalWrite(motor4, LOW);
-    delay(200);
+    delay(1000);
 
     // move head
     motor.write(0);
-    delay(200);
+    delay(500);
     motor.write(180);
-    delay(200);
+    delay(500);
     motor.write(90);
-    delay(200);
+    delay(500);
+
+    // go back
+    digitalWrite(motor1, LOW);
+    digitalWrite(motor2, HIGH);
+    digitalWrite(motor3, LOW);
+    digitalWrite(motor4, HIGH);
+    delay(1000);
 
     // turn
-    digitalWrite(motor1, LOW);
+    digitalWrite(motor1, HIGH);
     digitalWrite(motor2, LOW);
     digitalWrite(motor3, LOW);
     digitalWrite(motor4, HIGH);
-    delay(200);
+    delay(1000);
   }
 }
